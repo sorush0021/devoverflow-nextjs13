@@ -5,48 +5,25 @@ import LocalSearch from '@/components/shared/navbar/search/LocalSearch'
 import NoResult from '@/components/shared/NoResult'
 import { Button } from '@/components/ui/button'
 import { HomePageFilters } from '@/constants/filters'
+import { getQuestions } from '@/lib/actions/question.action'
 import Link from 'next/link'
 import React from 'react'
 
-const questions = [
-  {
-    _id: '1',
-    title: 'Cascading Deletes in SQLAlchemy?',
-    tags: [{ _id: '1', name: 'python' }, { _id: '2', name: 'sql' }],
-    author: {
-      _id: '1',
-      name: 'John Doe',
-      picture: 'john-doe.jpg',
-    },
-    upvotes: 1500000,
-    views: 500552,
-    answers: [],
-    createdAt: new Date('2024-08-06T12:00:00.000Z'),
-  },
-  {
-    _id: '2',
-    title: 'How to center a div?',
-    tags: [{ _id: '3', name: 'css' }, { _id: '4', name: 'html' }],
-    author: {
-      _id: '2',
-      name: 'Jane Smith',
-      picture: 'jane-smith.jpg',
-    },
-    upvotes: 5000000,
-    views: 15250,
-    answers: [],
-    createdAt: new Date('2024-08-02T10:30:00.000Z'),
-  },
-];
 
-const Home = () => {
+
+export default async function Home() {
+
+  const result = await getQuestions({});
+
+  console.log(result.questions)
+
   return (
     <>
      <div className='flex w-full flex-col-reverse
      justify-between gap-4 sm:flex-row sm:items-center'>
       <h1 className='h1-bold text-dark100_light900'>All Question </h1>
 
-      <Link href='/ask-Question' className='flex justify-end max-sm:w-full'>
+      <Link href='/ask-question' className='flex justify-end max-sm:w-full'>
       <Button className='primary-gradient min-h-[46px]
       px-4 py-3 !text-light-900'>
         Ask a Question
@@ -70,8 +47,8 @@ const Home = () => {
 
      <HomeFilters/>
      <div className='mt-10 flex w-full flex-col gap-6'>
-          {questions.length >0 ?
-          questions.map((question)=>(
+          {result.questions.length >0 ?
+          result.questions.map((question)=>(
               <QuestionCard
               key={question._id}
               _id={question._id}
@@ -94,4 +71,3 @@ const Home = () => {
   )
 }
 
-export default Home

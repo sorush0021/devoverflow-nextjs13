@@ -10,7 +10,7 @@ const GlobalSearch = () => {
         <Image src='/assets/icons/search.svg' alt='search' width={24} height={24} 
         className=' cursor-pointer' />
         <Input type='text' placeholder='Search globally'
-        value='' className='paragraph-regular no-focus placeholder  background-light800_darkgradient
+         className='paragraph-regular no-focus placeholder  background-light800_darkgradient
        shadow-none border-none  outline-none '/>
         </div>
         </div>
