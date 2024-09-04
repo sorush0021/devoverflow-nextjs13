@@ -15,7 +15,7 @@ export default authMiddleware({
     "/community",
     "/jobs",
   ],
-  ignoredRoutes: ["/api/webhook/clerk", "/api/openai", "/api/rapidapi"],
+  ignoredRoutes: ["/api/webhook/clerk", "/api/openai", "/api/rapidapi"],debug: true,
 });
 
 export const config = {
