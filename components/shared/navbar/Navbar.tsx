@@ -20,7 +20,9 @@ const Navbar = () => {
         <div className='flex-between gap-5'>
             <Theme/>
             <SignedIn>
-               < UserButton afterSignOutUrl='/'
+               < UserButton afterSwitchSessionUrl
+
+='/'
                appearance={{
                 elements:{
                     avatarBox:'h-10 w-10'
