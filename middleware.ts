@@ -1,8 +1,7 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
 
 const publicRoutes = createRouteMatcher([ "/",
-  "/api/webhook/clerk",
-  "/api/rapidapi",
+  "/api/webhook",
   "/question/:id",
   "/tags",
   "/tags/:id",
